@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}
+    Information
+{% endblock %}
+{% block body %}
+
+    <br><br>
+    {% if datas == [] %}
+        <div class="alert alert-warning" role="alert">
+            There is currently no information avaliable.
+        </div>
+    {% else %}
+        <table style="color: white" class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Filename</th>
+                <th scope="col">Path</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for data in datas %}
+                <tr>
+                    <th scope="row">{{ data.id }}</th>
+                    <td>{{ data.filename }}</td>
+                    <td>{{ data.path }}</td>
+                    <td><a href="/delete/{{ data.id }}" class="btn btn-danger"
+                           style="color: black;font-weight: bold">Delete</a></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}
