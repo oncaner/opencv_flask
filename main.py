@@ -107,7 +107,7 @@ def gen():
         key = cv2.waitKey(20)
         if key == 27:
             break
-
+# Video feed
 
 @app.route('/video_feed')
 def video_feed():
